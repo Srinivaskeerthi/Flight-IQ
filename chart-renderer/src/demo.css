@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap');
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #080c10;
+  --surface: #0d1117;
+  --border:  #1e2d3d;
+  --amber:   #f5a623;
+  --text:    #e6edf3;
+  --muted:   #8b949e;
+  --dim:     #484f58;
+  --mono:    'Share Tech Mono', monospace;
+  --display: 'Bebas Neue', sans-serif;
+  --body:    'DM Sans', sans-serif;
+}
+
+html { font-size: 16px; }
+body {
+  font-family: var(--body);
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  padding: 0;
+}
+
+/* Scanlines */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px,
+    rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+  pointer-events: none; z-index: 9999;
+}
+
+/* Header */
+.demo-root { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
+
+.demo-header {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 24px;
+}
+
+.demo-logo { display: flex; align-items: center; gap: 14px; }
+
+.demo-plane {
+  font-size: 36px;
+  filter: drop-shadow(0 0 12px rgba(245,166,35,0.5));
+}
+
+.demo-title {
+  font-family: var(--display);
+  font-size: 42px;
+  letter-spacing: 0.1em;
+  color: var(--amber);
+  line-height: 1;
+  text-shadow: 0 0 30px rgba(245,166,35,0.25);
+}
+
+.demo-subtitle {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--dim);
+  text-transform: uppercase;
+}
+
+.demo-desc {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.7;
+  max-width: 680px;
+}
+
+.demo-desc code {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: #58a6ff;
+  background: rgba(88,166,255,0.1);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Nav */
+.demo-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.demo-nav-btn {
+  padding: 6px 14px;
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  background: transparent;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.demo-nav-btn:hover      { border-color: #2a3f54; color: var(--text); }
+.demo-nav-active         { border-color: var(--amber); color: var(--amber);
+                           background: rgba(245,166,35,0.08); }
+
+/* Main */
+.demo-main { margin-bottom: 20px; }
+
+/* JSON viewer */
+.demo-json {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.demo-json summary {
+  padding: 10px 16px;
+  background: #131a22;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--dim);
+  cursor: pointer;
+  text-transform: uppercase;
+  user-select: none;
+}
+.demo-json summary:hover { color: var(--muted); }
+
+.demo-json pre {
+  padding: 16px;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.6;
+  color: #39d353;
+  background: #080c10;
+  overflow-x: auto;
+  max-height: 360px;
+}
+
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--surface); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }

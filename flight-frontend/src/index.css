@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fira+Code:wght@300;400;500&display=swap');
+
+/* ═══ Dark mode tokens (default) ══════════════════════ */
+:root {
+  --bg-0: #060d14;
+  --bg-1: #0b1520;
+  --bg-2: #10202e;
+  --bg-3: #162840;
+  --bg-4: #1c3050;
+  --teal-bright: #0ee8c8;
+  --teal-mid:    #09b89e;
+  --teal-dim:    #065a4e;
+  --teal-glow:   rgba(14,232,200,0.15);
+  --coral:       #ff6b6b;
+  --coral-dim:   rgba(255,107,107,0.15);
+  --gold:        #ffd166;
+  --gold-dim:    rgba(255,209,102,0.12);
+  --violet:      #9b72ff;
+  --violet-dim:  rgba(155,114,255,0.12);
+  --text-hi:     #e8f4f0;
+  --text-md:     #8ab5a8;
+  --text-lo:     #3d6b5e;
+  --border:      rgba(14,232,200,0.08);
+  --border-md:   rgba(14,232,200,0.16);
+  --border-hi:   rgba(14,232,200,0.32);
+  --glass:       rgba(11,21,32,0.75);
+  --font-ui:     'Outfit', sans-serif;
+  --font-code:   'Fira Code', monospace;
+  --r-sm: 8px; --r-md: 14px; --r-lg: 20px; --r-xl: 28px;
+  --ease: cubic-bezier(0.4,0,0.2,1);
+  --t: 0.22s;
+  --header: 60px;
+}
+
+/* ═══ Light mode tokens ════════════════════════════════ */
+body.light {
+  --bg-0:        #f0f6ff;
+  --bg-1:        #ffffff;
+  --bg-2:        #f8fafd;
+  --bg-3:        #edf2f9;
+  --bg-4:        #dde6f0;
+  --teal-bright: #0284c7;
+  --teal-mid:    #0369a1;
+  --teal-dim:    #bae6fd;
+  --teal-glow:   rgba(2,132,199,0.1);
+  --coral:       #e11d48;
+  --coral-dim:   rgba(225,29,72,0.08);
+  --gold:        #d97706;
+  --gold-dim:    rgba(217,119,6,0.08);
+  --violet:      #7c3aed;
+  --violet-dim:  rgba(124,58,237,0.08);
+  --text-hi:     #0f172a;
+  --text-md:     #334155;
+  --text-lo:     #94a3b8;
+  --border:      rgba(0,0,0,0.07);
+  --border-md:   rgba(0,0,0,0.13);
+  --border-hi:   rgba(2,132,199,0.35);
+  --glass:       rgba(255,255,255,0.9);
+}
+
+/* ═══ Reset ════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+
+body {
+  font-family: var(--font-ui);
+  background: var(--bg-0);
+  color: var(--text-hi);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background 0.35s var(--ease), color 0.35s var(--ease);
+}
+
+/* Dark mode ambient glow */
+body:not(.light)::before {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 70% 45% at 10% 0%,   rgba(14,232,200,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 50% 40% at 90% 100%,  rgba(155,114,255,0.05) 0%, transparent 55%);
+}
+
+/* Dot grid — both modes */
+body::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(14,232,200,0.055) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  transition: opacity 0.35s;
+}
+body.light::after {
+  background-image: radial-gradient(circle, rgba(2,132,199,0.07) 1px, transparent 1px);
+}
+
+/* ═══ Scrollbar ════════════════════════════════════════ */
+::-webkit-scrollbar              { width: 4px; height: 4px; }
+::-webkit-scrollbar-track        { background: transparent; }
+::-webkit-scrollbar-thumb        { background: var(--bg-4); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover  { background: var(--teal-mid); }
+
+/* ═══ Keyframes ════════════════════════════════════════ */
+@keyframes fadeUp  { from{opacity:0;transform:translateY(12px)} to{opacity:1;transform:translateY(0)} }
+@keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+@keyframes spin    { to{transform:rotate(360deg)} }
+@keyframes pulse   { 0%,100%{opacity:1} 50%{opacity:0.4} }
+@keyframes glow    { 0%,100%{box-shadow:0 0 0 0 rgba(14,232,200,0.3)} 50%{box-shadow:0 0 0 8px rgba(14,232,200,0)} }
+@keyframes flip    { 0%{transform:rotateX(0);opacity:1} 45%{transform:rotateX(-90deg);opacity:0} 55%{transform:rotateX(90deg);opacity:0} 100%{transform:rotateX(0);opacity:1} }
+@keyframes shimmer { 0%{background-position:0% 50%} 50%{background-position:100% 50%} 100%{background-position:0% 50%} }

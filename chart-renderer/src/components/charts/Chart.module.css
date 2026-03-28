@@ -1,0 +1,41 @@
+/* Chart.module.css — shared styles used by all chart renderers */
+
+.chartWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Line / Pie controls row */
+.lineControls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.toggleBtn {
+  padding: 4px 11px;
+  border-radius: 20px;
+  border: 1px solid #1e2d3d;
+  background: transparent;
+  color: #484f58;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.toggleBtn:hover  { border-color: #2a3f54; color: #8b949e; }
+.toggleActive     { border-color: #f5a623; color: #f5a623; background: rgba(245,166,35,0.08); }
+
+/* Empty / error */
+.empty {
+  padding: 32px;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #484f58;
+  text-transform: uppercase;
+}

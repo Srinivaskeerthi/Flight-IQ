@@ -1,0 +1,186 @@
+.wrapper { display: flex; flex-direction: column; gap: 0; overflow: hidden; }
+
+/* Toolbar */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 12px;
+  background: #0d1117;
+  border-bottom: 1px solid #1e2d3d;
+  flex-wrap: wrap;
+}
+
+.filterWrap {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #080c10;
+  border: 1px solid #1e2d3d;
+  border-radius: 6px;
+  padding: 5px 10px;
+  flex: 1;
+  max-width: 320px;
+  transition: border-color 0.15s;
+}
+.filterWrap:focus-within { border-color: #f5a623; }
+
+.filterInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #e6edf3;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+}
+.filterInput::placeholder { color: #484f58; }
+
+.clearFilter {
+  background: none; border: none; color: #484f58;
+  cursor: pointer; font-size: 11px; padding: 0 2px;
+  transition: color 0.12s;
+}
+.clearFilter:hover { color: #ff6b6b; }
+
+.toolbarRight { display: flex; align-items: center; gap: 10px; }
+
+.countBadge {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: #484f58;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.exportBtn {
+  padding: 4px 11px;
+  border: 1px solid #1e2d3d;
+  border-radius: 5px;
+  background: transparent;
+  color: #8b949e;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.exportBtn:hover { border-color: #39d353; color: #39d353; }
+
+/* Table */
+.scroll { overflow-x: auto; }
+
+.table { width: 100%; border-collapse: collapse; font-size: 12px; }
+
+.th {
+  padding: 8px 12px;
+  background: #131a22;
+  border-bottom: 1px solid #2a3f54;
+  text-align: left;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #484f58;
+  cursor: pointer;
+  white-space: nowrap;
+  user-select: none;
+  transition: color 0.12s;
+}
+.th:hover     { color: #8b949e; }
+.thSorted     { color: #f5a623; }
+.thNum        { text-align: right; }
+.indexTh      { width: 36px; color: #1e2d3d; cursor: default; }
+
+.thContent    { display: flex; align-items: center; gap: 5px; justify-content: space-between; }
+.thLabel      { flex: 1; }
+.sortIcon     { font-size: 9px; opacity: 0.5; }
+.thSorted .sortIcon { opacity: 1; }
+
+.tr:hover td  { background: rgba(255,255,255,0.02); }
+
+.td {
+  padding: 7px 12px;
+  border-bottom: 1px solid #1a2330;
+  color: #e6edf3;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  white-space: nowrap;
+  max-width: 240px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tdNum    { text-align: right; color: #58a6ff; }
+.indexTd  { color: #2a3f54; font-size: 10px; }
+
+.null { color: #2a3f54; font-style: italic; }
+
+/* Pagination */
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #131a22;
+  border-top: 1px solid #1e2d3d;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.pageSizeWrap { display: flex; align-items: center; gap: 5px; }
+
+.pageSizeLabel {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  color: #484f58;
+  letter-spacing: 0.1em;
+}
+
+.pageSizeBtn {
+  padding: 3px 8px;
+  border: 1px solid #1e2d3d;
+  border-radius: 4px;
+  background: transparent;
+  color: #484f58;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.pageSizeBtn:hover { border-color: #2a3f54; color: #8b949e; }
+.pageSizeActive   { border-color: #f5a623; color: #f5a623; background: rgba(245,166,35,0.08); }
+
+.pageNav { display: flex; align-items: center; gap: 4px; }
+
+.pageNav button {
+  padding: 3px 9px;
+  border: 1px solid #1e2d3d;
+  border-radius: 4px;
+  background: transparent;
+  color: #8b949e;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.12s;
+}
+.pageNav button:hover:not(:disabled) { border-color: #f5a623; color: #f5a623; }
+.pageNav button:disabled             { opacity: 0.25; cursor: default; }
+
+.pageInfo {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  color: #e6edf3;
+  min-width: 52px;
+  text-align: center;
+}
+.pageSep { color: #484f58; margin: 0 2px; }
+
+.empty {
+  padding: 32px;
+  text-align: center;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: #484f58;
+  letter-spacing: 0.1em;
+}

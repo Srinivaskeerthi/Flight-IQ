@@ -1,0 +1,132 @@
+/* ChartRenderer.module.css
+   Aviation-terminal dark theme — consistent with the chat UI colour palette */
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background: var(--cr-bg, #0d1117);
+  border: 1px solid var(--cr-border, #1e2d3d);
+  border-radius: 12px;
+  overflow: hidden;
+  font-family: var(--cr-body, 'DM Sans', sans-serif);
+  color: var(--cr-text, #e6edf3);
+  position: relative;
+}
+
+/* faint corner glow */
+.wrapper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background: radial-gradient(
+    ellipse 50% 30% at 0% 0%,
+    rgba(245,166,35,0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────── */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background: var(--cr-surface, #131a22);
+  border-bottom: 1px solid var(--cr-border, #1e2d3d);
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ── Code toggle button ──────────────────────────────────────────────── */
+.codeBtn {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--cr-border, #1e2d3d);
+  background: transparent;
+  color: var(--cr-muted, #8b949e);
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.codeBtn:hover        { border-color: #58a6ff; color: #58a6ff; }
+.codeBtnActive        { border-color: #58a6ff; color: #58a6ff; background: rgba(88,166,255,0.08); }
+
+/* ── Code panel ──────────────────────────────────────────────────────── */
+.codePanel {
+  background: #080c10;
+  border-bottom: 1px solid var(--cr-border, #1e2d3d);
+}
+
+.codePanelHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 14px;
+  border-bottom: 1px solid #1e2d3d;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--cr-muted, #8b949e);
+  text-transform: uppercase;
+}
+
+.copyBtn {
+  padding: 2px 8px;
+  border: 1px solid #1e2d3d;
+  border-radius: 4px;
+  background: transparent;
+  color: #8b949e;
+  font-size: 10px;
+  font-family: 'Share Tech Mono', monospace;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.copyBtn:hover { border-color: #39d353; color: #39d353; }
+
+.codeBlock {
+  padding: 12px 16px;
+  margin: 0;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: #39d353;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-all;
+}
+
+/* ── Chart area ──────────────────────────────────────────────────────── */
+.chartArea {
+  padding: 16px;
+  min-height: 80px;
+}
+
+/* ── Empty state ─────────────────────────────────────────────────────── */
+.empty {
+  align-items: center;
+  justify-content: center;
+  padding: 48px;
+  gap: 12px;
+  min-height: 120px;
+}
+.emptyIcon { font-size: 28px; color: #484f58; }
+.emptyText {
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 12px;
+  color: #484f58;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
