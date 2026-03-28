@@ -7,6 +7,7 @@ then optionally interprets the result back into a human-readable answer.
 from __future__ import annotations
 
 import logging
+import os
 import re
 from typing import Optional
 
@@ -64,7 +65,7 @@ Be specific — include numbers, airline names, or key statistics where relevant
 # ---------------------------------------------------------------------------
 
 class LLMConfig(BaseModel):
-    api_key: str = "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"
+    api_key: str = os.getenv("OPENAI_API_KEY")
     model: str = DEFAULT_MODEL
     temperature: float = DEFAULT_TEMPERATURE
     max_tokens: int = DEFAULT_MAX_TOKENS
