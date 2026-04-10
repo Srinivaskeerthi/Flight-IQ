@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './LoadingMessage.css';
 
-const STAGES = ['Parsing question…','Generating pandas query…','Executing on DataFrame…','Interpreting results…'];
+const STAGES = ["Understanding your query...",
+  "Generating insights...",
+  "Analyzing flight data...",
+  "Preparing results..."];
 
 export default function LoadingMessage() {
   const [s, setS] = useState(0);

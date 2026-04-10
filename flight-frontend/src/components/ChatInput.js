@@ -54,7 +54,7 @@ export default function ChatInput({ input, setInput, onSend, isLoading, onCancel
       </div>
 
       <div className="input-footer">
-        <span>FlightIQ · Groq LLaMA 3.3 + pandas</span>
+        <span>FlightIQ · AI-Powered Analytics Engine</span>
         <span>Shift+Enter for new line</span>
       </div>
     </div>

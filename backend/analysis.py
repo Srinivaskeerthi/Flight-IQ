@@ -94,14 +94,16 @@ def _format_result(raw_result: Any, code: str) -> dict:
             "data": _make_serialisable(data),
             "columns": list(raw_result.columns),
             "row_count": len(raw_result),
+            "type": "table",
             "executed_code": code,
         }
 
     if isinstance(raw_result, pd.Series):
-        data = raw_result.reset_index().to_dict(orient="records")
+        df = raw_result.reset_index()
+        data = df.to_dict(orient="records")
         return {
             "data": _make_serialisable(data),
-            "columns": list(raw_result.reset_index().columns),
+            "columns": list(df.columns),
             "row_count": len(raw_result),
             "executed_code": code,
         }
@@ -113,13 +115,17 @@ def _format_result(raw_result: Any, code: str) -> dict:
             "data": data,
             "columns": ["value"],
             "row_count": len(data),
+            "type": "list",
             "executed_code": code,
         }
+    if not isinstance(raw_result, (pd.DataFrame, pd.Series)):
+        raw_result = pd.DataFrame(raw_result)
 
     # Scalar or other primitive
     return {
         "data": _make_serialisable(raw_result),
         "columns": None,
         "row_count": None,
+        "type": "scalar",
         "executed_code": code,
     }
